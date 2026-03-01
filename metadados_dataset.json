@@ -1,0 +1,33 @@
+{
+  "nome_dataset": "consumo_eletrico_ami_2024",
+  "descricao": "Leituras horárias de 50 medidores inteligentes AMI simulados",
+  "periodo": "2024-01-01 a 2024-06-30",
+  "frequencia": "Horária (1H)",
+  "qtd_registros": 212846,
+  "qtd_medidores": 50,
+  "colunas": {
+    "medidor_id": "Identificador único do medidor (MED_001 ... MED_050)",
+    "perfil": "Categoria do consumidor: Residencial, Comercial, Industrial",
+    "timestamp": "Data e hora da leitura (datetime64)",
+    "consumo_kwh": "Consumo elétrico no período (kWh) — pré-processado",
+    "tensao_v": "Tensão elétrica medida (V)",
+    "fator_potencia": "Fator de potência (0 a 1)",
+    "hora": "Hora do dia extraída do timestamp (0–23)",
+    "dia_semana": "Nome do dia da semana",
+    "mes": "Mês (1–12)",
+    "turno": "Turno: Madrugada / Manhã / Tarde / Noite",
+    "fim_semana": "Booleano — True se Sábado ou Domingo"
+  },
+  "transformacoes_aplicadas": [
+    "Remoção de duplicatas",
+    "Remoção de valores negativos de consumo",
+    "Winsorização (p0.5% - p99.5%) para outliers extremos",
+    "Imputação de nulos com mediana por medidor",
+    "Engenharia de features temporais"
+  ],
+  "qualidade_final": {
+    "completude": "100%",
+    "nulos_restantes": 0,
+    "registros_finais": 212846
+  }
+}
